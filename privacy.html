@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17852720289"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'AW-17852720289');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy</title>
@@ -28,6 +37,96 @@
             }
         }
     </script>
+    <style>
+        /* ----- DEFAULT NAV BAR ----- */
+      .topnav {
+        width: 100%;
+        background-color: #ffffff;
+        /* border-bottom: 1px solid #e5e7eb; */
+        padding: 10px 16px;
+        position: relative;
+        overflow: hidden;
+        justify-content: center;
+      }
+      
+      .topnav a {
+        display: block;
+        color: #1E3A8A;
+        padding: 12px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        text-align: center;           /* Center links on mobile by default */
+        transition: all 0.3s ease;    /* Smooth appearance */
+      }
+      
+      /* Hamburger hidden on desktop */
+      .topnav .icon {
+        display: none;
+      }
+      
+      /* ----- MOBILE ----- */
+      @media screen and (max-width: 600px) {
+        .topnav a:not(.icon) {
+          display: none;               /* hide menu items by default */
+        }
+      
+        .topnav .icon {
+          display: block;
+          position: absolute;
+          right: 16px;
+          top: -10px;
+          /* border: 2px solid #1E3A8A; */
+          border-radius: 8px;
+          padding: 8px 12px;
+          cursor: pointer;
+          background: #fff;
+        }
+      
+        /* Slide-down menu */
+        .topnav.responsive a {
+          display: block;
+          text-align: center;          /* Center links under hamburger */
+          opacity: 0;
+          transform: translateY(-10px);
+          animation: slideDown 0.3s forwards;
+        }
+      
+        @keyframes slideDown {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      
+        .topnav.responsive {
+          padding-top: 150px;           /* Space for hamburger */
+        }
+    </style>
+    <script>
+      function myFunction() {
+        const x = document.getElementById("myTopnav");
+        x.classList.toggle("responsive");
+      }
+
+      // Close menu when clicking outside
+      document.addEventListener("click", function (event) {
+        const nav = document.getElementById("myTopnav");
+        const icon = document.querySelector("#myTopnav .icon");
+    
+        // If menu is open AND click is outside the nav AND not the hamburger
+        if (nav.classList.contains("responsive") &&
+            !nav.contains(event.target) &&
+            event.target !== icon) {
+    
+          nav.classList.remove("responsive");
+        }
+      });
+    
+      // Prevent the icon click from closing immediately
+      document.querySelector("#myTopnav .icon").addEventListener("click", function (event) {
+        event.stopPropagation();
+      });
+    </script>
 </head>
 <body class="bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 font-sans">
 
@@ -43,13 +142,20 @@
                     <p class="text-xs text-slate-500">Privacy First</p>
                 </div>
             </div>
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">Home</a>
-                <a href="#" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">About</a>
-                <a href="#" class="text-blue-600 font-semibold">Privacy Policy</a>
-                <a href="#" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">Terms</a>
-                <a href="#" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">Contact</a>
-            </nav>
+            <nav class="topnav lg:flex lg:items-center lg:items-center lg:space-x-8" id="myTopnav">
+           
+            <a href="solutions.html"
+              class="text-gray-700 hover:text-blue-600 font-medium transition">Solutions</a><a
+              href="usecases.html"
+              class="text-gray-700 hover:text-blue-600 font-medium transition">Use
+              Cases</a><a href="about.html"
+              class="text-gray-700 hover:text-blue-600 font-medium transition">About</a><a
+              href="contact.html"
+              class="text-gray-700 hover:text-blue-600 font-medium transition">Contact</a>
+             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+               <i class="fa fa-bars"></i>
+             </a>
+          </nav>
             <button class="md:hidden text-slate-600">
                 <i class="fa-solid fa-bars text-2xl"></i>
             </button>
